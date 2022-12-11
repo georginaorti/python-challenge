@@ -1,36 +1,55 @@
 import os
 import csv
 
-election_data=os.path.join("PyPoll", "Resources", "election_data.csv")
+csvpath2 = os.path.join('/Users/g/python-challenge/Pypoll/Resources/election_data.csv')
 
-Total_Votes=[]
-Charles_Casper_Stockham=[]
-Diana_DeGette=[]
-Raymon_Anthony_Doane=[]
-Winner=[]
+total = []
+charles = []
+diana = []
+raymon = []
 
-Total_Votes = len(election_data)
-Charles_Casper_Stockham = len(row ["Candidate": "Charles Casper Stockham"] for row in election_data)
-Diana_DeGette = len(row ["Candidate": "Diana DeGette"] for row in election_data)
-Raymon_Anthony_Doane = len(row["Candidate": "Raymon Anthony Doane"] for row in election_data)
+with open (csvpath2) as csvfile2:
+    csvreader = csv.reader(csvfile2, delimiter=',')
+    csv_header = next(csvreader)
+
+    for row in csvreader:
+        total.append(row[0])
+        charles.append(row[2])
+        diana.append(row[2])
+        raymon.append(row[2])
+    
 
 
-with open(election_data) as csv.file:
-    csv.reader=csv.reader(csv.file, delimiter=",")
-    for row in csv.reader:
-        Total_Votes.append(row[0])
-        Charles_Casper_Stockham.append(row[1])
-        Diana_DeGette.append(row[2])
-        Raymon_Anthony_Doane.append(row[3])
-        Winner.append(row[4])
-         
-    print(f"Election Results")
-    print(f"------------------------")
-    print(f"Total Votes: {int(Total_Votes)}")
-    print(f"------------------------")
-    print(f"Charles Casper Stockham: {int(Charles_Casper_Stockham)}")
-    print(f"Diana DeGette: {int(Diana_DeGette)}")
-    print(f"Raymon Anthony Doane: {int(Raymon_Anthony_Doane)}")
-    print(f"------------------------")
-    print(f"Winner: Diana DeGette")
-    print(f"------------------------")
+print(f"Election Results")
+print(f"---------------------------------")
+print(f"Total Votes: {len(total)}")
+print(f"Charles Casper Stockham:{len(charles('Charles Casper Stockham'))}")
+print(f"Diana DeGette:{len(diana('Diana DeGette'))}")
+print(f"Raymon Anthony Doane: ${len(raymon('Raymon Anthony Doane'))}")
+print(f"---------------------------------")
+print(f"Winner: Diana DeGette")
+print(f"---------------------------------")
+
+new_text = os.path.join('/Users/g/python-challenge/Pypoll/Financial_Analysis')
+
+with open(new_text, "w") as file:
+        file.write("Election Results")
+        file.write("\n")
+        file.write("---------------------------------")
+        file.write("\n")
+        file.write(f"Total Votes: {len(total)}")
+        file.write("\n")
+        file.write("---------------------------------")
+        file.write("\n")
+        file.write(f"Charles Casper Stockham: {len(charles('Charles Casper Stockham'))}")
+        file.write("\n")
+        file.write(f"Diana DeGette: {len(diana('Diana DeGette'))}")
+        file.write("\n")
+        file.write(f"Raymon Anthony Doane: {len(raymon('Raymon Anthony Doane'))}")
+        file.write("\n")
+        file.write("---------------------------------")
+        file.write("\n")
+        file.write("Winner: Diana DeGette")
+        file.write("\n")
+        file.write("---------------------------------")
+
